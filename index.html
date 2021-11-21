@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/danfojs@0.3.3/lib/bundle.min.js"></script>
+</head>
+
+<body>
+  <div id=div1></div>
+
+
+    <script>
+
+      //danfo is exposed on dfd namespace 
+      s = new dfd.Series([1,2,3,4,5])
+      s.print()
+
+      json_data = [{ A: 0.4612, B: 4.28283, C: -1.509, D: -1.1352 },
+            { A: 0.5112, B: -0.22863, C: -3.39059, D: 1.1632 },
+            { A: 0.6911, B: -0.82863, C: -1.5059, D: 2.1352 },
+            { A: 0.4692, B: -1.28863, C: 4.5059, D: 4.1632 }]
+        df2 = new dfd.DataFrame(json_data)
+        df2.describe().print()
+        df2["A"].plot("div1").box();
+
+    </script>
+</body>
+</html>
